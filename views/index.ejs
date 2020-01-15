@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <% include partials/header %>
+<body>
+    <div id="wrapper">
+        <div class="container">
+            <div>
+                <form action="/signin" method="POST" class="form-signin">
+                <span><i class="fas fa-user-lock"></i></span>
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <% if(error){ %>    
+                        <p class="err"><%= error %></p>
+                      <% } %>
+                    <label for="inputEmail" class="sr-only">Username</label>
+                    <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Username"required autofocus>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control"placeholder="Password" required minlength="6">
+                    <div class="checkbox mb-3">
+                        <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-danger btn-block" type="submit">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<div>
+    <div>
+       <footer id="footer">
+          <% include partials/footer %>
+       </footer>
+    </div>
+</div>
+</body>
+</html>
