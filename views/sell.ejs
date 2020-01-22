@@ -3,21 +3,82 @@
     <% include partials/header %>
 <body>
     <div id="wrapper">
+        <input class="product-search" type="search" placeholder="Search Products">
+            <div class="sort">
+                <a href="">A</a>
+                <a href="">B</a>
+                <a href="">C</a>
+                <a href="">D</a>
+                <a href="">E</a>
+                <a href="">F</a>
+                <a href="">G</a>
+                <a href="">H</a>
+                <a href="">I</a>
+                <a href="">J</a>
+                <a href="">K</a>
+                <a href="">L</a>
+                <a href="">M</a>
+                <a href="">N</a>
+                <a href="">O</a>
+                <a href="">P</a>
+                <a href="">Q</a>
+                <a href="">R</a>
+                <a href="">S</a>
+                <a href="">T</a>
+                <a href="">U</a>
+                <a href="">V</a>
+                <a href="">W</a>
+                <a href="">X</a>
+                <a href="">Y</a>
+                <a href="">Z</a>
+             </div>
         <div id="user-form">
             <div id="sell-products">
-                <div>
-                                
+                <div class="sell-center">
+                    <% for(product of products){ %>
+                        <div id="product" style="cursor:pointer" onclick="document.location='/admin/manage_products'">
+                            <%  %>
+                            <%= product.productName %>
+                            <br>
+                            ₦<%= product.sellingPrice %>
+                            <br>
+                            <%= product.productQuantity %>
+                        </div>
+                        <% } %>
+                        <div class="sell-nav">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                  <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                  <li class="page-item active">
+                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                  <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                  </li>
+                                </ul>
+                              </nav>
+                        </div>
                 </div>
             </div>
             <div id="add-user">
-        <form class="form" action="/admin/manage_users/add_user" method="POST">
-            <div class="col-auto">
-           
-            </div>
-            <div class="form-footer">
-                <button type="submit" class="btn btn-outline-success" type="submit">Add User</button>
-            </div>
-        </form>
+                <div id="items-to-sell">
+                   
+                </div>
+                <div class="sell-form-footer">
+                    <div class="sell-footer-btn">
+                        <button type="reset" id="clear" class="btn btn-sm btn-outline-success"><i class="fas fa-times"></i></button>
+                        <button type="reset" id="remove" class="btn btn-sm btn-outline-success"><i class="fas fa-minus"></i></button>
+                        <button type="reset" id="remove" class="btn btn-sm btn-outline-success"><i class="fas fa-minus"></i></button>
+                    </div>
+                    
+                    <form class="form" action="/admin/manage_users/add_user" method="POST">
+                        <p>TOTAL: <span>₦</span></p>
+                    </form>
+                </div>
             </div>
            
         </div>

@@ -108,15 +108,15 @@
                                 <tr
                                     <th scope="row"></th>
                                     <td class="product-name"><%= product.productName %></td>
-                                    <td><%= product.costPrice %></td>
-                                    <td><%= product.sellingPrice %></td>
+                                    <td>₦<%= product.costPrice %></td>
+                                    <td>₦<%= product.sellingPrice %></td>
                                     <td><%= product.measuringUnit %></td>
                                     <td><%= product.productQuantity %></td>
                                 </tr>
                                 <% } %>
                         </tbody>
                         </table>
-                        <!-- <%- paginationHtml %> -->
+                        <%- paginationHtml %>
                 </div>                
             </div>
         </div>

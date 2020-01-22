@@ -2,11 +2,9 @@ const   express  = require('express'),
         router   = express.Router(),
         mongoose = require('mongoose'),
         paginate = require('paginate')({mongoose: mongoose});
-        Products = require('../models/product')
+        Products = require('../models/product');
 
     router.get('/admin/manage_products', (req, res)=>{
-        
-
         Products.find({}, (err, products)=>{
             if(err){
                 console.log(err);
@@ -17,7 +15,7 @@ const   express  = require('express'),
             // calculate the data for above variables and pass them in below method
        
             let pagination = paginate.page(totalItems, itemsPerPage, pageNum),
-           paginationHtml = pagination.render({ baseUrl: '/' }); //the link to pass to href, page number will be added as query paramtere to it e.g. /?page=6
+            paginationHtml = pagination.render({ baseUrl: '/' }); //the link to pass to href, page number will be added as query paramtere to it e.g. /?page=6
         res.render('manageProducts', {title:'POS: Manage Products', error:'', message:'', products:products, paginationHtml:paginationHtml})
         })
     })
