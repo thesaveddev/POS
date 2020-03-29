@@ -1,17 +1,11 @@
+const admin = require('../controllers/admin/admin')
+
 const   express = require('express'),
-        router  = express.Router(),
-        User    = require('../models/user')
+        app     = express()
 
-router.get('/admin', (req, res)=>{
-    res.render('adminDashboard', {title: 'POS: Admin'})
-})
 
-router.get('/admin/manage_users', (req, res)=>{
-    User.find({}, (err, users)=>{
-        if(err){
-            console.log(err);
-        }
-        res.render('manageUsers', {users:users, title:'POS: Manage Users', error:'', message:''});
-    })
-})
-module.exports = router
+
+app.get('/dashboard', admin)
+
+
+module.exports = app

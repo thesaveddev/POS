@@ -1,20 +1,14 @@
+const showProducts = require('../controllers/sales/showProducts'),
+      sellProducts = require('../controllers/sales/sellProducts')
+
+
 const express   = require('express'),
-      router    = express.Router(),
-      Product   = require('../models/product')
+      app       = express()
+      
+    //show available items for sale
+    app.get('/sales', showProducts),
 
-    router.get('/sales', (req, res)=>{
-        Product.find({}, (err, products)=>{
-            if(err){
-                console.log(err);
-            }
-            
-            const limit = 24;
-            const page = 1;
-            const startIndex = (page - 1) * limit;
-            const endIndex = page * limit;
-            const productsToShow = products.splice(startIndex, endIndex);
-            res.render('sell', {title:'POS: Sales', products:productsToShow})
-        })
-    })
-
-      module.exports = router;
+    //pay for cart items
+    app.post('/sales/sellItems', sellProducts)
+    
+      module.exports = app;

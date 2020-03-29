@@ -1,0 +1,41 @@
+ul, li {
+	margin: 0;
+	padding: 0;
+}
+#mainMenu {
+	margin:10px;
+	width:120px;
+	font-family: "Trebuchet MS";
+}
+#mainMenu li {
+	position:relative;
+	display:block;
+	border:1px solid #000;
+	border-top:0px;
+}
+#mainMenu li:first-child {
+	border-top:1px solid #000;
+}
+#mainMenu a {
+	display:block;
+	padding:3px;
+	text-decoration:none;
+	color:#009;
+}
+#mainMenu a:hover {
+	background-color:#009;
+	color:#fff;
+}
+#mainMenu li ul {
+	position:absolute;
+	width:150px;
+	left:118px;
+	top:5px;
+	display:none;
+}
+#mainMenu li ul li {
+	font-size:smaller;
+}
+#mainMenu li:hover ul {
+	display:block;
+}

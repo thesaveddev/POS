@@ -18,12 +18,15 @@ mongoose.set('usenewUrlParser', true);
 mongoose.connect('mongodb://localhost/p_o_s', {useUnifiedTopology:true, useNewUrlParser:true}, console.log('DB Connected'));
 
 //declare routes
-const indexRoute    = require('./routes/index'),
-      adminRoute    = require('./routes/admin'),
-      authRoute     = require('./routes/auth'),
-      usersRoute    = require('./routes/users'),
-      productsRoute = require('./routes/products'),
-      salesRoute    = require('./routes/sales')
+const indexRoute     = require('./routes/index'),
+      adminRoute     = require('./routes/admin'),
+      authRoute      = require('./routes/auth'),
+      usersRoute     = require('./routes/users'),
+      productsRoute  = require('./routes/products'),
+      salesRoute     = require('./routes/sales'),
+      inventoryRoute = require('./routes/inventory'),
+      customerRoute  = require('./routes/customer'),
+      supplierRoute  = require('./routes/supplier')
 
 //use routes
 app.use(indexRoute);
@@ -32,6 +35,9 @@ app.use(authRoute);
 app.use(usersRoute);
 app.use(productsRoute);
 app.use(salesRoute);
+app.use(inventoryRoute);
+app.use(customerRoute);
+app.use(supplierRoute);
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
 

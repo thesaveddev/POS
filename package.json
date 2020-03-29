@@ -12,6 +12,12 @@
     "point of sale",
     "supermarket"
   ],
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "12.x"
+  },
   "author": "Netware Information Technologies",
   "license": "MIT",
   "dependencies": {

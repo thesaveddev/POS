@@ -32,41 +32,62 @@
                 <a href="">Y</a>
                 <a href="">Z</a>
              </div>
-        <div id="user-form">
+        <div id="sales-form">
             <div id="sell-products">
                 <div class="sell-center">
-                    <% for(product of products){ %>
-                        <div id="product" style="cursor:pointer" onclick="document.location='/admin/manage_products'">
-                            <%  %>
-                            <%= product.productName %>
+                    <% let products = productsToShow.result %>
+                    <% for (let i = 0; i < products.length; i++) { %>
+                        <div id="product" style="cursor:pointer" onclick="addToCart()">
+                            <%= products[i].productName %>
                             <br>
-                            ₦<%= product.sellingPrice %>
+                            ₦<%= products[i].sellingPrice %>
                             <br>
-                            <%= product.productQuantity %>
+                            <%= products[i].productQuantity %>
                         </div>
                         <% } %>
-                        <div class="sell-nav">
-                            <nav aria-label="...">
-                                <ul class="pagination">
-                                  <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                  </li>
-                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                  <li class="page-item active">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                  </li>
-                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                  <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                  </li>
-                                </ul>
-                              </nav>
-                        </div>
+                </div>
+                <div class="sell-nav">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                        <% if(productsToShow.previous){ %>
+                          <li class="page-item">
+                             <a class="page-link" href="/sales?page=<%= productsToShow.previous %>">Previous</a>
+                          </li>
+                          <% } %>
+                          <% if(productsToShow.previous <  productsToShow.current){ %>
+                          <li class="page-item"><a class="page-link" href="/sales?page=<%= productsToShow.current - 1 %>"><%= productsToShow.current - 1 %></a></li>
+                          <% } %>
+                          <li class="page-item"><a class="page-link current-page" href="/sales?page=<%= productsToShow.current %>"><%= productsToShow.current %></a></li>
+                          <% if(productsToShow.next > productsToShow.current){ %>
+                          <li class="page-item"><a class="page-link" href="/sales?page=<%= productsToShow.current + 1 %>"><%= productsToShow.current + 1 %></a></li>
+                          <% } %>
+                          <% if(productsToShow.next){ %>
+                          <li class="page-item">
+                            <a class="page-link" href="/sales?page=<%= productsToShow.next %>">Next</a>
+                          </li>
+                          <%}%>
+                        </ul>
+                      </nav>
                 </div>
             </div>
-            <div id="add-user">
+            <div id="sales-cart">
                 <div id="items-to-sell">
-                   
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">Mark</td">
+                            <td scope="row">Otto</td>
+                            <td scope="row">@mdo</td>
+                          </tr>
+                        </tbody>
+                      </table>
                 </div>
                 <div class="sell-form-footer">
                     <div class="sell-footer-btn">

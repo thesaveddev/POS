@@ -7,18 +7,58 @@
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4fc8e5e9cf.js" crossorigin="anonymous"></script>
-    <title> <%=title%> </title>
+    <title> POS: <%=title%> </title>
     <!-- Image and text -->
-<nav class="navbar navbar-light" style="background-color: #ff6347;">
+<nav class="navbar navbar-light" style="background-color: #60d0ec;">
         <a class="navbar-brand" href="/">
           <span>P</span>
           MY POS
         </a>
+        
         <div class="ml-auto">
-        <% if(title != 'POS: Login'){ %>
-          <a id="sign-out" href="/admin">Dashboard</a>
+        <% if(title != 'Login'){ %>
+          <a>Admin</a>
           <a id="sign-out" href="/signout">Sign Out</a>
         <% } %>
         </div>
 </nav>
 </head>
+<% if(title != "Login"){ %>
+  <div class="menu">
+    <div>
+      <a href="/dashboard"><i class="fas fa-tachometer-alt" data-placement="top" title="Dashboard"></i>  Dashboard</a>
+    </div>
+      <br>
+      <div>
+        <a href="/admin/manage_products?page=1"><i class="fab fa-opencart" data-placement="top" title="Manage Products"></i>  Manage Products</a>
+      </div>
+      <br>
+    <div>
+      <a href="/admin/inventory"><i class="fas fa-boxes" data-placement="top" title="Inventory"></i>  Inventory</a>
+    </div>
+      <br>
+    <div>
+      <a href="/sales?page=1"><i class="fas fa-cart-arrow-down" data-placement="top" title="Sales"></i>  Sales</a>
+    </div>
+      <br>
+    <div>
+      <a href="/suppliers"><i class="fas fa-parachute-box" data-placement="top" title="Suppliers"></i>Suppliers</a>
+    </div>
+      <br>
+    <div>
+      <a href="/admin/manage_customers"><i class="fas fa-user-check" data-placement="top" title="Customers"></i>  Customers</a>
+    </div>
+      <br>
+    <div>
+      <a href="/amdin/reports"><i class="fas fa-chart-pie" data-placement="top" title="Reports"></i>  Reports</a>
+    </div>
+      <br>
+    <div>
+      <a href="/admin/manage_users"><i class="fas fa-users-cog" data-placement="top" title="Manage Users"></i>  Manage Users</a>
+    </div>
+      <br>
+    <div>
+      <a href="/admin/settings"><i class="fas fa-sliders-h" data-placement="top" title="Settings"></i>  Settings</a>
+    </div>
+  </div>
+  <% } %>

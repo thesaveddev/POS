@@ -1,7 +1,9 @@
-const express   = require('express'),
-      router    = express.Router()
+const index = require('../controllers/index/index')
 
-    router.get('/', (req, res)=>{
-      res.render('index', {title:'POS: Login', error:''})
-      })
-    module.exports = router;
+const express   = require('express'),
+      app    = express()
+
+    //show the home page
+    app.get('/', index)
+      
+    module.exports = app;
