@@ -2,7 +2,7 @@ const express     = require('express'),
       app         = express(),
       bodyParser  = require('body-parser'),
       mongoose    = require('mongoose'),
-      port        = process.env.PORT || 3000
+      PORT        = process.env.PORT || 3000
 
 
 app.set('view engine', 'ejs')
@@ -39,6 +39,6 @@ app.use(inventoryRoute);
 app.use(customerRoute);
 app.use(supplierRoute);
 
-app.listen(port, () => console.log(`Listening on port ${port}`))
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
 
 module.exports = app;

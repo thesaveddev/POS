@@ -4,27 +4,26 @@
   "description": "Mini Point of Sale App.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "node_modules/.bin/mocha --recursive tests"
+    "start": "node app.js"
   },
   "keywords": [
     "POS",
     "point of sale",
     "supermarket"
   ],
-  "scripts": {
-    "start": "node app.js"
-  },
   "engines": {
     "node": "12.x"
   },
   "author": "Netware Information Technologies",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "ejs": "^2.7.1",
     "express": "^4.16.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.14",
     "node-gyp": "^6.1.0",
     "paginate": "^0.2.0"

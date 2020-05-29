@@ -1,22 +1,35 @@
-User    = require('../../models/user')
+const User    = require('../../models/user')
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const querystring = require('querystring');
 
 module.exports = (req, res)=>{
-    let username = req.body.username,
-        password = req.body.password;
 
-    let validateLogin = (username, password)=>{
-        User.findOne({username:username}, (err, user)=>{
-         if(err){
-             console.log(err);
+        User.findOne({username:req.body.username}, (err, user)=>{
+         if(!user){
+             res.render('index', {title: 'Login', error:'Incorrect Username or Password!'});
             }
-         if(user){
-                res.redirect('/dashboard');
-             }else{
-             res.render('index', {title: 'Login', error:'Incorrect Password'})
-             } if(user === null){
-             res.render('index', {title: 'Login', error:'User Not Registered!'})
-         }
+            else {
+                bcrypt.compare(req.body.password, user.password, (err, result) => {
+                    if(!result){
+                        res.render('index', {title: 'Login', error:'Incorrect Username or Password!'})
+                    }
+                    else {
+            let token = jwt.sign({
+                username:user.username,
+                id:user._id
+            }, 'dontguessit', {
+                expiresIn: '1d'
+                });
+                const authConfig = {
+                    headers: {
+                        Authorization: "Bearer " + token
+                    }
+                }
+                res.cookie('token',  token);
+                res.redirect("/dashboard");
+                }
+            })
+        } 
     })
-}
-validateLogin(username, password);
 }

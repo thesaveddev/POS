@@ -35,14 +35,14 @@
         <div id="sales-form">
             <div id="sell-products">
                 <div class="sell-center">
-                    <% let products = productsToShow.result %>
+
+                        <% var products = productsToShow.result %>
+                                            
                     <% for (let i = 0; i < products.length; i++) { %>
-                        <div id="product" style="cursor:pointer" onclick="addToCart()">
-                            <%= products[i].productName %>
-                            <br>
-                            ₦<%= products[i].sellingPrice %>
-                            <br>
-                            <%= products[i].productQuantity %>
+                        <div class="product" id="product" style="cursor:pointer" >
+                            <span ><%= products[i].productName %></span>
+                            <span >₦ <%= products[i].sellingPrice %></span>
+                            <span ><%= products[i].productQuantity %></span>
                         </div>
                         <% } %>
                 </div>
@@ -71,23 +71,15 @@
                 </div>
             </div>
             <div id="sales-cart">
+              <span id="cart-title">Cart</span>
                 <div id="items-to-sell">
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Item</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td scope="row">Mark</td">
-                            <td scope="row">Otto</td>
-                            <td scope="row">@mdo</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  <div id="item-list">
+
+                   <span id="productQuantity" class="cart-item-title"></span>
+                   <span id="productName" class="cart-item-title"></span>
+                   <span id="sellingPrice" class="cart-item-title"></span>
+
+                  </div>
                 </div>
                 <div class="sell-form-footer">
                     <div class="sell-footer-btn">
@@ -105,6 +97,32 @@
         </div>
     </div>
 <div>
+
+<!-- modal starts here -->
+
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sale-modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal ends here -->
+
     <div>
        <footer id="footer">
           <% include partials/footer %>

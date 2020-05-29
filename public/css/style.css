@@ -298,24 +298,18 @@ padding: 0px;
   position: relative;
   height: 78.5vh;
   float: left;
-  width: 67%;
+  width: 63%;
   margin-left: 10%;
   margin-right: 0.5%;
 }
 #sales-cart{
+  min-height: 78.5vh;
+  max-height: 78.5vh;
   height: 78.5vh;
   border-left: 1px solid #60d0ec;
   border-radius: 5px;
-  width: 22.5%;
+  width: 26.5%;
   text-align: left;
-  float: left;
-}
-#items-to-sell{
-  height: 70%;
-  background-color: #fafafa;
-  margin: 5px;
-}
-#items-to-sell > div{
   float: left;
 }
 .sell-center{
@@ -323,13 +317,20 @@ padding: 0px;
   text-align: center;
   margin-bottom: 5px;
 }
-#items-to-sell > table{
-  width: 40%;
+#item-list{
+  overflow-y:auto;
+  height: 50vh;
+  width:100%;
+  background-color: #fafafa;
+  margin: 5px;
 }
-#items-to-sell > table > thead{
-  height: 15px;
+#items-to-sell > div{
+  float: left;
 }
-#product{
+#sales-cart > span{
+  left: 40%
+}
+.product{
   font-size: 12px;
   margin: 5px;
   padding-top: 2px;
@@ -401,4 +402,22 @@ padding: 0px;
 }
 #quantity{
   width: 600px;
+}
+.cart-item-title {
+  font-size: large;
+  font-weight: bold;
+}
+span#productQuantity {
+  display: inline-block;
+  width: 12%;
+  float: left;
+}
+span#productName {
+  display: inline-block;
+  width: 58%;
+}
+span#sellingPrice {
+  display: inline-block;
+  width: 30%;
+  float: right;
 }
