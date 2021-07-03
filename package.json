@@ -4,7 +4,7 @@
   "description": "Mini Point of Sale App.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [
     "POS",
@@ -25,7 +25,9 @@
     "express": "^4.16.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.14",
+    "node-fetch": "^2.6.1",
     "node-gyp": "^6.1.0",
+    "nodemon": "^2.0.4",
     "paginate": "^0.2.0"
   },
   "devDependencies": {

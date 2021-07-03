@@ -5,7 +5,7 @@ module.exports =
 //add a new user
 (req, res) => {
 
-    //chech if user exists
+    //check if user exists
     User.findOne({email:req.body.email}, (err, user)=> {
         if(err){
             console.log(err);

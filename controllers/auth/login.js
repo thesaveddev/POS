@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const querystring = require('querystring');
 
 module.exports = (req, res)=>{
-
+   
         User.findOne({username:req.body.username}, (err, user)=>{
          if(!user){
              res.render('index', {title: 'Login', error:'Incorrect Username or Password!'});
